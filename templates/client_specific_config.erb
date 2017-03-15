@@ -16,4 +16,6 @@ push redirect-gateway def1
 <% @route.each do |route| -%>
 push "route <%= route %>"
 <% end -%>
-
+<% if @inactive -%>
+push inactive <%= @inactive %>
+<% end -%>

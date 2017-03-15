@@ -40,7 +40,11 @@
 # [*ensure]
 #   Keyword. Sets the client specific configuration file status (present or absent)
 #   Default: present
-#
+# 
+# [*inactive]
+#   Number. number of secondes to wait before exit
+#   Default: 0
+#   
 #
 # === Examples
 #
@@ -85,6 +89,7 @@ define openvpn::client_specific_config(
   $ifconfig         = false,
   $dhcp_options     = [],
   $redirect_gateway = false,
+  $inactive         = 0,
 ) {
 
   Openvpn::Server[$server] ->
